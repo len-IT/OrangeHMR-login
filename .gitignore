@@ -1,0 +1,3 @@
+echo *.html > .gitignore
+echo *.xml >> .gitignore
+echo *.png >> .gitignore
