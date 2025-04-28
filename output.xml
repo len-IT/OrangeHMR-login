@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.2 on win32)" generated="2025-04-28T13:38:45.087084" rpa="false" schemaversion="5">
+<suite id="s1" name="Login" source="C:\Users\ASUS\TDHQT\OrangeHRM-login\login.robot">
+<kw name="Open Browser To Login Page" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-28T13:38:45.689679" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-28T13:38:45.689140" elapsed="7.207601"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-04-28T13:38:52.897452" elapsed="0.049742"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=username</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-28T13:38:52.947747" elapsed="1.010086"/>
+</kw>
+<status status="PASS" start="2025-04-28T13:38:45.687808" elapsed="8.270262"/>
+</kw>
+<test id="s1-t1" name="Valid Login" line="34">
+<kw name="Go To Login Page" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-04-28T13:38:53.960756" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-04-28T13:38:53.960323" elapsed="1.126603"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>name=username</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-28T13:38:55.087215" elapsed="1.289471"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=username</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-28T13:38:56.376980" elapsed="0.029222"/>
+</kw>
+<status status="PASS" start="2025-04-28T13:38:53.959539" elapsed="2.446870"/>
+</kw>
+<kw name="Input Credentials">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-28T13:38:56.407905" level="INFO">Typing text 'Admin' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-28T13:38:56.407565" elapsed="0.143856"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-28T13:38:56.552404" level="INFO">Typing text 'admin123' into text field 'name=password'.</msg>
+<arg>name=password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-28T13:38:56.551843" elapsed="0.200333"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-28T13:38:56.753407" level="INFO">Clicking button 'css=button[type='submit']'.</msg>
+<arg>css=button[type='submit']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-28T13:38:56.752850" elapsed="0.206542"/>
+</kw>
+<arg>${VALID_USER}</arg>
+<arg>${VALID_PASS}</arg>
+<status status="PASS" start="2025-04-28T13:38:56.406973" elapsed="0.552698"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=.oxd-topbar-header-title</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-28T13:38:56.960692" elapsed="1.796416"/>
+</kw>
+<kw name="Element Text Should Be" owner="SeleniumLibrary">
+<msg time="2025-04-28T13:38:58.758686" level="INFO">Verifying element 'css=.oxd-topbar-header-title' contains exact text 'Dashboard'.</msg>
+<arg>css=.oxd-topbar-header-title</arg>
+<arg>Dashboard</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<status status="PASS" start="2025-04-28T13:38:58.758119" elapsed="0.047192"/>
+</kw>
+<status status="PASS" start="2025-04-28T13:38:53.958235" elapsed="4.847614"/>
+</test>
+<test id="s1-t2" name="Invalid Login" line="39">
+<kw name="Go To Login Page" type="SETUP">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-04-28T13:38:58.809550" level="INFO">Opening url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-04-28T13:38:58.809341" elapsed="1.765188"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<msg time="2025-04-28T13:39:31.031305" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-04-28T13:39:31.031689" level="FAIL">Element 'name=username' did not appear in 30 seconds.</msg>
+<arg>name=username</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="FAIL" start="2025-04-28T13:39:00.574817" elapsed="30.495486">Element 'name=username' did not appear in 30 seconds.</status>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=username</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" start="2025-04-28T13:39:31.070617" elapsed="0.000056"/>
+</kw>
+<status status="FAIL" start="2025-04-28T13:38:58.808878" elapsed="32.261995">Element 'name=username' did not appear in 30 seconds.</status>
+</kw>
+<status status="FAIL" start="2025-04-28T13:38:58.807657" elapsed="32.263893">Setup failed:
+Element 'name=username' did not appear in 30 seconds.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-28T13:39:31.073215" elapsed="2.291160"/>
+</kw>
+<doc>Test suite for OrangeHRM login functionality</doc>
+<status status="FAIL" start="2025-04-28T13:38:45.090150" elapsed="48.274422"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Login" id="s1" pass="1" fail="1" skip="0">Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

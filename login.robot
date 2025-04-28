@@ -4,7 +4,6 @@ Library          SeleniumLibrary
 Suite Setup      Open Browser To Login Page
 Suite Teardown   Close Browser
 Test Setup       Go To Login Page
-Test Teardown    Logout If Logged In
 
 *** Variables ***
 ${URL}           https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
@@ -24,15 +23,6 @@ Go To Login Page
     Go To    ${URL}
     Wait Until Page Contains Element    name=username    30s
     Wait Until Element Is Visible    name=username    30s
-
-Logout If Logged In
-    ${is_logged_in}=    Run Keyword And Return Status    Element Should Be Visible    css=.oxd-userdropdown
-    Run Keyword If    ${is_logged_in}    Logout
-
-Logout
-    Click Element    css=.oxd-userdropdown
-    Wait Until Element Is Visible    css=.oxd-dropdown-menu    10s
-    Click Element    xpath=//a[text()='Logout']
 
 Input Credentials
     [Arguments]    ${username}    ${password}
